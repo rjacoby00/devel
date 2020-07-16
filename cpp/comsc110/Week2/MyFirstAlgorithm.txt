@@ -1,0 +1,20 @@
+Write on a piece of paper these 6 labels: "david", "victoria", "ethan", "tilly", "grandma", "grandpa".
+
+Ask dad his age -- write in under the label "david".
+Ask mom her age -- write in under the label "victoria".
+Ask brother his age -- write in under the label "ethan".
+Ask dog her age -- write in under the label "tilly".
+Ask grandpa his age -- write in under the label "grandpa".
+Ask grandma her age -- write in under the label "grandma".
+Write a new label on the piece of paper: "sum".
+
+Add the numbers under the labels "david" and "victoria" -- write it under sum.
+Add the numbers under the labels "sum" and "ethan" -- write it under sum.
+Add the numbers under the labels "sum" and "tilly" -- write it under sum.
+Add the numbers under the labels "sum" and "grandma" -- write it under sum.
+Add the numbers under the labels "sum" and "grandpa" -- write it under sum.
+
+Write a new label on the piece of paper: "avg".
+Divide the value under "sum" by 6 and round to the nearest hundreth -- write it under the label "avg".
+
+Write on a new piece of paper: "My family's average is: " followed by the value written under the avg label.

@@ -1,0 +1,37 @@
+Write down sum on a piece of paper with a zero below it.
+
+Write down itemOne on a piece of paper.
+Ask the user for the price of item 1 -- write their response under itemOne.
+Overwrite the current value under sum with the value under sum added to the value under itemOne.
+
+Write down itemOne on a piece of paper.
+Ask the user for the price of item 2 -- write their response under itemTwo.
+Overwrite the current value under sum with the value under sum added to the value under itemTwo.
+
+Write down itemOne on a piece of paper.
+Ask the user for the price of item 3 -- write their response under itemThree.
+Overwrite the current value under sum with the value under sum added to the value under itemThree.
+
+Write down itemOne on a piece of paper.
+Ask the user for the price of item 4 -- write their response under itemFour.
+Overwrite the current value under sum with the value under sum added to the value under itemFour
+
+Write down itemOne on a piece of paper.
+Ask the user for the price of item 5 -- write their response under itemFive.
+Overwrite the current value under sum with the value under sum added to the value under itemFive.
+
+Write down itemOne on a piece of paper.
+Ask the user for the price of item 6 -- write their response under itemSix.
+Overwrite the current value under sum with the value under sum added to the value under itemSix.
+
+Write down itemOne on a piece of paper.
+Ask the user for the price of item 7 -- write their response under itemSeven.
+Overwrite the current value under sum with the value under sum added to the value under itemSeven.
+
+Write down itemOne on a piece of paper.
+Ask the user for the price of item 8 -- write their response under itemEight.
+Overwrite the current value under sum with the value under sum added to the value under itemEight.
+
+Overwrite the current value under sum with the value under sum multiplied by 1.0725 and round off to hundreths.
+
+Write on a new piece of paper: "Your total is: " followed by the value written under the sum label.

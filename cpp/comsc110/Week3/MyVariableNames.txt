@@ -1,0 +1,6 @@
+dogAge = 9
+catName = "Jacob"
+dayOfWeek = "Wednesday"
+todaysHighTemp = 88
+bookTitle = "Harry Potter and the Prisoner of Azkaban"
+sandwichType = "tuna"

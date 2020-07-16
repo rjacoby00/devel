@@ -1,0 +1,8 @@
+To compile asm to binary:
+nasm -f bin hello_world_boot_sector.asm -o hello_world_boot_sector.bin
+
+To run compile binary:
+qemu-system-x86_64 hello_world_boot_sector.bin
+
+To make disk image of compiled binary:
+dd if=hello_world_boot_sector.bin of=boot.img count=1 bs=512

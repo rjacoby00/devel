@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	  <meta charset="utf-8" />
+  <base href="http://imreallynotbatman.com/joomla/index.php/component/search/" />
+  <meta name="generator" content="Joomla! - Open Source Content Management" />
+  <title>Search</title>
+  <link href="/joomla/templates/protostar/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <link href="http://imreallynotbatman.com/joomla/index.php/component/search/?format=opensearch" rel="search" title="Search I'm Not Batman" type="application/opensearchdescription+xml" />
+  <link rel="stylesheet" href="/joomla/media/jui/css/chosen.css" />
+  <link rel="stylesheet" href="/joomla/templates/protostar/css/template.css" />
+  <style type="text/css">
+div.mod_search87 input[type="search"]{ width:auto; }
+  </style>
+  <script src="/joomla/media/jui/js/jquery.min.js"></script>
+  <script src="/joomla/media/jui/js/jquery-noconflict.js"></script>
+  <script src="/joomla/media/jui/js/jquery-migrate.min.js"></script>
+  <script src="/joomla/media/jui/js/chosen.jquery.min.js"></script>
+  <script src="/joomla/media/jui/js/bootstrap.min.js"></script>
+  <script src="/joomla/templates/protostar/js/template.js"></script>
+  <script src="/joomla/media/system/js/html5fallback.js"></script>
+  <script type="text/javascript">
+
+		jQuery(document).ready(function (){
+			jQuery('select').chosen({"disable_search_threshold":10,"search_contains":true,"allow_single_deselect":true,"placeholder_text_multiple":"Select some options","placeholder_text_single":"Select an option","no_results_text":"No results match"});
+		});
+	
+jQuery(document).ready(function(){
+	jQuery('.hasTooltip').tooltip({"html": true,"container": "body"});
+});
+  </script>
+
+				<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<style type="text/css">
+			h1,h2,h3,h4,h5,h6,.site-title{
+				font-family: 'Open Sans', sans-serif;
+			}
+		</style>
+				<!--[if lt IE 9]>
+		<script src="/joomla/media/jui/js/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body class="site com_search view-search no-layout task-12345">
+
+	<!-- Body -->
+	<div class="body">
+		<div class="container">
+			<!-- Header -->
+			<header class="header" role="banner">
+				<div class="header-inner clearfix">
+					<a class="brand pull-left" href="/joomla/">
+						<span class="site-title" title="I'm Not Batman">I'm Not Batman</span>											</a>
+					<div class="header-search pull-right">
+						<div class="search mod_search87">
+	<form action="/joomla/index.php/component/search/" method="post" class="form-inline">
+		<label for="mod-search-searchword" class="element-invisible">Search ...</label> <input name="searchword" id="mod-search-searchword" maxlength="200"  class="inputbox search-query" type="search" size="20" placeholder="Search ..." />		<input type="hidden" name="task" value="search" />
+		<input type="hidden" name="option" value="com_search" />
+		<input type="hidden" name="Itemid" value="" />
+	</form>
+</div>
+
+					</div>
+				</div>
+			</header>
+							<nav class="navigation" role="navigation">
+					<div class="navbar pull-left">
+						<a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+					</div>
+					<div class="nav-collapse">
+						<ul class="nav menu nav-pills">
+<li class="item-101 current active"><a href="/joomla/index.php" >Home</a></li><li class="item-108"><a href="/joomla/index.php/about" >About</a></li><li class="item-115"><a href="/joomla/index.php/author-login" >Author Login</a></li></ul>
+
+					</div>
+				</nav>
+						
+			<div class="row-fluid">
+								<main id="content" role="main" class="span9">
+					<!-- Begin Content -->
+							<div class="moduletable">
+						
+
+<div class="custom"  >
+	<p><img style="display: block; margin-left: auto; margin-right: auto;" src="/joomla/images/imnotbatman.jpg" alt="" /></p></div>
+		</div>
+	
+					<div id="system-message-container">
+	</div>
+
+					
+<div class="search">
+
+<form id="searchForm" action="/joomla/index.php/component/search/" method="post">
+
+	<div class="btn-toolbar">
+		<div class="btn-group pull-left">
+			<input type="text" name="searchword" placeholder="Search Keyword:" id="search-searchword" size="30" maxlength="200" value="the" class="inputbox" />
+		</div>
+		<div class="btn-group pull-left">
+			<button name="Search" onclick="this.form.submit()" class="btn hasTooltip" title="Search"><span class="icon-search"></span>Search</button>
+		</div>
+		<input type="hidden" name="task" value="search" />
+		<div class="clearfix"></div>
+	</div>
+
+	<div class="searchintro">
+				<p><strong>Total: <span class="badge badge-info">5</span> results found.</strong></p>
+			</div>
+
+			<fieldset class="phrases">
+			<legend>Search for:			</legend>
+				<div class="phrases-box">
+				<div class="controls">
+	<label for="searchphraseall" id="searchphraseall-lbl" class="radio">
+	
+	<input type="radio" name="searchphrase" id="searchphraseall" value="all"  />All words
+	</label>
+	<label for="searchphraseany" id="searchphraseany-lbl" class="radio">
+	
+	<input type="radio" name="searchphrase" id="searchphraseany" value="any"  checked="checked"  />Any words
+	</label>
+	<label for="searchphraseexact" id="searchphraseexact-lbl" class="radio">
+	
+	<input type="radio" name="searchphrase" id="searchphraseexact" value="exact"  />Exact Phrase
+	</label>
+</div>
+				</div>
+				<div class="ordering-box">
+				<label for="ordering" class="ordering">
+					Ordering:				</label>
+				<select id="ordering" name="ordering" class="inputbox">
+	<option value="newest">Newest First</option>
+	<option value="oldest">Oldest First</option>
+	<option value="popular">Most Popular</option>
+	<option value="alpha" selected="selected">Alphabetical</option>
+	<option value="category">Category</option>
+</select>
+				</div>
+		</fieldset>
+	
+			<fieldset class="only">
+			<legend>Search Only:</legend>
+						<label for="area-categories" class="checkbox">
+				<input type="checkbox" name="areas[]" value="categories" id="area-categories"  >
+				Categories			</label>
+						<label for="area-contacts" class="checkbox">
+				<input type="checkbox" name="areas[]" value="contacts" id="area-contacts"  >
+				Contacts			</label>
+						<label for="area-content" class="checkbox">
+				<input type="checkbox" name="areas[]" value="content" id="area-content"  >
+				Articles			</label>
+						<label for="area-newsfeeds" class="checkbox">
+				<input type="checkbox" name="areas[]" value="newsfeeds" id="area-newsfeeds"  >
+				News Feeds			</label>
+						<label for="area-tags" class="checkbox">
+				<input type="checkbox" name="areas[]" value="tags" id="area-tags"  >
+				Tags			</label>
+					</fieldset>
+	
+
+	<div class="form-limit">
+		<label for="limit">
+			Display #		</label>
+		<select id="limit" name="limit" class="inputbox input-mini" size="1" onchange="this.form.submit()">
+	<option value="5">5</option>
+	<option value="10">10</option>
+	<option value="15">15</option>
+	<option value="20" selected="selected">20</option>
+	<option value="25">25</option>
+	<option value="30">30</option>
+	<option value="50">50</option>
+	<option value="100">100</option>
+	<option value="0">All</option>
+</select>
+	</div>
+<p class="counter">
+			</p>
+
+
+</form>
+
+<dl class="search-results">
+	<dt class="result-title">
+		1. 					<a href="/joomla/index.php/about">
+				About			</a>
+			</dt>
+			<dd class="result-category">
+			<span class="small">
+				(Uncategorised)
+			</span>
+		</dd>
+		<dd class="result-text">
+		This tells you a bit about this blog and <span class="highlight">the</span> person who writes it.  When you are logged in you will be able to edit this page by clicking on the edit icon. &#160;...	</dd>
+			<dd class="result-created">
+			Created on 01 January 2011		</dd>
+		<dt class="result-title">
+		2. 					<a href="/joomla/index.php/4-about-your-home-page">
+				About your home page			</a>
+			</dt>
+			<dd class="result-category">
+			<span class="small">
+				(Blog)
+			</span>
+		</dd>
+		<dd class="result-text">
+		Your home page is set to display <span class="highlight">the</span> four most recent articles from the blog category in a column. Then there are links to the 4 nest oldest articles. You can change those numbers by editing the content&#160;...	</dd>
+			<dd class="result-created">
+			Created on 03 January 2011		</dd>
+		<dt class="result-title">
+		3. 					<a href="/joomla/index.php/3-welcome-to-your-blog">
+				Welcome to your blog			</a>
+			</dt>
+			<dd class="result-category">
+			<span class="small">
+				(Blog)
+			</span>
+		</dd>
+		<dd class="result-text">
+		This is a sample blog posting. If you log in to <span class="highlight">the</span> site (the Author Login link is on the very bottom of this page) you will be able to edit it and all of the other existing articles. You will also be&#160;...	</dd>
+			<dd class="result-created">
+			Created on 05 January 2011		</dd>
+		<dt class="result-title">
+		4. 					<a href="/joomla/index.php/5-your-modules">
+				Your Modules			</a>
+			</dt>
+			<dd class="result-category">
+			<span class="small">
+				(Blog)
+			</span>
+		</dd>
+		<dd class="result-text">
+		Your site has some commonly used modules already preconfigured. <span class="highlight">The</span>se include: Image Module which holds the image beneath the menu. This is a Custom module that you can edit to change the image. Blog Roll.&#160;...	</dd>
+			<dd class="result-created">
+			Created on 31 December 2010		</dd>
+		<dt class="result-title">
+		5. 					<a href="/joomla/index.php/6-your-template">
+				Your Template			</a>
+			</index.php/login" >Author Login</a></li></ul>
+
+			<p class="pull-right">
+				<a href="#top" id="back-top">
+					Back to Top				</a>
+			</p>
+			<p>
+				&copy; 2016 I'm Not Batman			</p>
+		</div>
+	</footer>
+	
+</body>
+</html>

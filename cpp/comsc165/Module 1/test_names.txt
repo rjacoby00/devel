@@ -1,0 +1,39 @@
+Isaac Newton
+Albert Einstein
+Galileo Galilei
+
+Richard Feynman
+Enrico Fermi
+Nicola Tesla
+
+Alessandro Volta
+Charles-Augustin de Coulomb
+Marie Curie
+
+Francis Crick
+Stephen Hawking
+Alan Turing
+
+Charles Babbage
+Ada Lovelace
+Robert Kahn
+
+35
+78
+13
+
+35
+43
+13
+
+13
+65
+13
+
+-1
+54
+84
+
+-35
+-24
+-2

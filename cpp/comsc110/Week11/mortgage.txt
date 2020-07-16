@@ -1,0 +1,24 @@
+Amount borrowed (user input): $270000
+Anual intrest rate (user input): 0.427083%
+Payback period (programmer input): 30 Years
+Montly payment (output): $1470.11
+Amount borrowed (user input): $27000
+Anual intrest rate (user input): 0.427083%
+Payback period (programmer input): 30 Years
+Montly payment (output): $147.011
+
+Amount borrowed (user input): $27000
+Anual intrest rate (user input): 0.427083%
+Payback period (programmer input): 30 Years
+Montly payment (output): $147.011
+
+Amount borrowed (user input): $270000
+Anual intrest rate (user input): 5.125%
+Payback period (programmer input): 30 Years
+Montly payment (output): $1470.11
+
+Amount borrowed (user input): $27000
+Anual intrest rate (user input): 5.125%
+Payback period (programmer input): 30 Years
+Montly payment (output): $147.011
+

@@ -1,0 +1,46 @@
+Write down sum on a piece of paper with a zero below it.
+
+Write down itemOne on a piece of paper.
+Ask the user for the price of item 1 -- write their response under itemOne.
+Overwrite the current value under sum with the value under sum and the value under itemOne.
+
+Write down itemTwo on a piece of paper.
+Ask user if there is an itemTwo -- if there is no itemTwo, branch to line 42.
+Ask the user for the price of item 2 -- write their response under itemTwo.
+Overwrite the current value under sum with the value under sum and the value under itemTwo.
+
+Write down itemThree on a piece of paper.
+Ask user if there is an itemThree -- if there is no itemThree, branch to line 42.
+Ask the user for the price of item 2 -- write their response under itemThree.
+Overwrite the current value under sum with the value under sum and the value under itemThree.
+
+Write down itemFour on a piece of paper.
+Ask user if there is an itemFour -- if there is no itemFour, branch to line 42.
+Ask the user for the price of item 2 -- write their response under itemFour.
+Overwrite the current value under sum with the value under sum and the value under itemFour.
+
+Write down itemFive on a piece of paper.
+Ask user if there is an itemFive -- if there is no itemFive, branch to line 42.
+Ask the user for the price of item 2 -- write their response under itemFive.
+Overwrite the current value under sum with the value under sum and the value under itemFive.
+
+Write down itemSix on a piece of paper.
+Ask user if there is an itemSix -- if there is no itemSix, branch to line 42.
+Ask the user for the price of item 2 -- write their response under itemSix.
+Overwrite the current value under sum with the value under sum and the value under itemSix.
+
+Write down itemSeven on a piece of paper.
+Ask user if there is an itemSeven -- if there is no itemSeven, branch to line 42.
+Ask the user for the price of item 2 -- write their response under itemSeven.
+Overwrite the current value under sum with the value under sum and the value under itemSeven.
+
+Write down itemEight on a piece of paper.
+Ask user if there is an itemEight -- if there is no itemEight, branch to line 42.
+Ask the user for the price of item 2 -- write their response under itemEight.
+Overwrite the current value under sum with the value under sum and the value under itemEight.
+
+42
+
+Overwrite the current value under sum with the value under sum multiplied by 1.0725 and round off to hundreths.
+
+Write on a new piece of paper: "Your total is: " followed by the value written under the sum label.

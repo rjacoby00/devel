@@ -1,0 +1,29 @@
+1. 
+If total is equal to max but greater than sum, the program will print "total is not equal to MAX" even it it is
+
+Fixed code:
+if (total == MAX) {
+    if (total < sum) {
+        System.out.println("total == MAX and is < sum.");
+    }
+} else {
+    System.out.println("total is not equal to MAX");
+}
+
+2.
+In that if statement, you are assigning lenght to MIN_LENGTH, not comparing them.  This code will compile but it will not prodce the desired output.
+
+3.
+lime
+grape
+
+4.
+
+5.
+
+6.
+
+7.
+
+8.
+Loops only execute the following line or code block.  Because there is no code block, only the print statement gets executed and not the count incrementer.  This means the loop will go on forever.  To fix it, put the print statemnet and count incrementer in a code block.
