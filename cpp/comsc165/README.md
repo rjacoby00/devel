@@ -1,0 +1,2 @@
+# COMSC - 165
+This is my work for COMSC-165 section 5074 at Diablo Valley College.  None of my code is here as I don't think I am allowed to publish it.  The executables and run screenshots are here, but they shouldn't be of much help.  If you plan on reverse engineering my executable rather than writing your own code, you're definatly waisting your time; writing the assignments is much easier than reverse engineering.  If you need help in this class(doesn't have to be the same section), feel free to send me an email at [rjacoby00@icloud.com](mailto:rjacoby00@icloud.com).

@@ -1,0 +1,2 @@
+# COMSC - 110
+This is my work for COMSC-110 at Diablo Valley College.  None of my code is here as I don't think I am allowed to publish it.  If you need help in this class, feel free to send me an email at [rjacoby00@icloud.com](mailto:rjacoby00@icloud.com).
