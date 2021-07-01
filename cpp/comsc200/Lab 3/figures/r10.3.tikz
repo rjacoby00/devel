@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=box] (0) at (0, 0) {Person};
+		\node [style=box] (1) at (-3, -2) {Student};
+		\node [style=box] (2) at (3, -2) {Employee};
+		\node [style=box] (3) at (3, -4) {Secretary};
+		\node [style=box] (4) at (-1, -4) {Professor};
+		\node [style=box] (5) at (7, -4) {Janitor};
+		\node [style=box] (6) at (-1, -6) {DepartmentChair};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0) to (1);
+		\draw (0) to (2);
+		\draw (2) to (3);
+		\draw (2) to (4);
+		\draw (4) to (6);
+		\draw (2) to (5);
+	\end{pgfonlayer}
+\end{tikzpicture}

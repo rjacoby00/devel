@@ -1,0 +1,665 @@
+\documentclass[letterpaper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{tikz}
+\usepackage{everysel}
+\usepackage{ragged2e}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{color}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows.blur}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{COMSC-200 \\ Lab 4}
+\author{Ryan Jacoby}
+\date{20 September 2020}
+\begin{document}
+
+\maketitle
+
+\section{Quicksort vs. Select Median}
+
+Median Select is around 28 times faster than Quicksort.
+
+\begin{lstlisting}[language=c++, caption=main.cpp]
+// Ryan Jacoby
+
+/*
+Done! (Intel Core-i5 8600k@4.6GHz)
+
+--Sort + Middle--
+Min: 95149      Max: 96755      Avg: 95649
+
+--Mean--
+Min: 1675       Max: 5597       Avg: 3467
+
+
+Done! (Intel Core-i9 9900k@5.00GHz)
+
+--Sort + Middle--
+Min: 85769      Max: 90052      Avg: 86201
+
+--Mean--
+Min: 1583       Max: 4988       Avg: 3221
+*/
+
+#include<iostream>
+#include<ctime>
+#include<chrono>
+
+using namespace std;
+
+void printArr(int[], int);
+void swap(int[], int, int);
+int select(int[], int, int, int);
+void quickSort(int[], int, int);
+int med(int, int, int);
+void fillArr(int[], int);
+
+int main() {
+    srand(time(NULL));
+
+    int a[100000];
+
+    int s[100];
+    int q[100];
+
+    for(int i = 0; i < 100; i++) {
+        fillArr(a, 100000);
+
+        auto start = chrono::high_resolution_clock::now();
+        select(a, 100000 / 2, 0, 100000);
+        auto stop = chrono::high_resolution_clock::now();
+
+        s[i] = chrono::duration_cast<chrono::microseconds>(stop - start).count();
+
+        fillArr(a, 100000);
+
+        start = chrono::high_resolution_clock::now();
+        quickSort(a, 0, 99999);
+        stop = chrono::high_resolution_clock::now();
+
+        q[i] = chrono::duration_cast<chrono::microseconds>(stop - start).count();
+
+        cout << i << "\r";
+
+    }
+    
+
+    cout << "Done!\n";
+
+    cout << "\n--Sort + Middle--\n";
+    int min = q[0], max = q[0], sum = 0;
+    for(int i = 0; i < 100; i++) {
+        if(q[i] > max) max = q[i];
+        if(q[i] < min) min = q[i];
+        sum += q[i];
+    }
+
+    cout << "Min: " << min << "\tMax: " << max << "\tAvg: " << sum / 100 << '\n';
+
+    cout << "\n--Mean--\n";
+    min = s[0];
+    max = s[0];
+    sum = 0;
+    for(int i = 0; i < 100; i++) {
+        if(s[i] > max) max = s[i];
+        if(s[i] < min) min = s[i];
+        sum += s[i];
+    }
+
+    cout << "Min: " << min << "\tMax: " << max << "\tAvg: " << sum / 100 << '\n';
+
+    return 0;
+}
+
+void swap(int arr[], int a, int b) {
+    int temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp;
+}
+
+void printArr(int arr[], int n) {
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << '\t';
+    cout << '\n';
+}
+
+int select(int arr[], int k, int a, int b) {
+    int pivot = arr[b];
+    int i = a;
+    for(int j = a; j < b; j++) 
+        if(arr[j] <= pivot) {
+            swap(arr, i, j);
+            i++;
+        }
+    swap(arr, i, b);
+
+    if(i - a == k) return arr[i];
+    if(i - a > k) return select(arr, k, a, i - 1);
+    return select(arr, k - i + a - 1, i + 1, b);
+}
+
+int med(int a, int b, int c) {
+    if (a >= b && a <= c || a >= c && a <= b) return a;
+    if (b >= a && b <= c || b >= c && b <= a) return b;
+    return c;
+}
+
+void fillArr(int arr[], int n) {
+    for(int i = 0; i < n; i++) {
+        arr[i] = rand() % 100;
+    }
+}
+
+void quickSort(int arr[], int a, int b) {
+    if(a < b) {
+        int pivot = arr[b];
+
+        int i = a - 1;
+        for(int j = a; j < b; j++) 
+            if(arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        swap(arr, i + 1, b);
+
+        quickSort(arr, a, i);
+        quickSort(arr, i + 2, b);
+    }
+}
+\end{lstlisting}
+
+\pagebreak
+
+\section{Quicksort using pivot at the end vs. Quicksort using median pivot}
+
+Supprisingly, using median is actually 1.02 times slower than using the last element.
+
+\begin{lstlisting}[language=c++, caption=main.cpp]
+// Ryan Jacoby
+
+/*
+Done! (Intel Core-i5 8600k@4.6GHz)
+
+--DEFAULT--
+Min: 95133      Max: 102687     Avg: 95797
+
+--Modified--
+Min: 97079      Max: 103806     Avg: 97657
+
+
+Done! (Intel Core-i9 9900k@5.00GHz)
+
+--DEFAULT--
+Min: 85851      Max: 86795      Avg: 86224
+
+--Modified--
+Min: 86840      Max: 87906      Avg: 87181
+*/
+
+#include<iostream>
+#include<ctime>
+#include<chrono>
+
+using namespace std;
+
+void printArr(int[], int);
+void swap(int[], int, int);
+void quickSort(int[], int, int);
+void quickSortMod(int[], int, int);
+int med(int, int, int);
+void fillArr(int[], int);
+
+int main() {
+    srand(time(NULL));
+
+    int a[100000];
+
+    int q[100];
+    int qM[100];
+
+    for(int i = 0; i < 100; i++) {
+        fillArr(a, 100000);
+
+        auto start = chrono::high_resolution_clock::now();
+        quickSortMod(a, 0, 99999);
+        auto stop = chrono::high_resolution_clock::now();
+
+        qM[i] = chrono::duration_cast<chrono::microseconds>(stop - start).count();
+
+        fillArr(a, 100000);
+
+        start = chrono::high_resolution_clock::now();
+        quickSort(a, 0, 99999);
+        stop = chrono::high_resolution_clock::now();
+
+        q[i] = chrono::duration_cast<chrono::microseconds>(stop - start).count();
+
+        cout << i << "\r";
+
+    }
+    
+
+    cout << "Done!\n";
+
+    cout << "\n--DEFAULT--\n";
+    int min = q[0], max = q[0], sum = 0;
+    for(int i = 0; i < 100; i++) {
+        if(q[i] > max) max = q[i];
+        if(q[i] < min) min = q[i];
+        sum += q[i];
+    }
+
+    cout << "Min: " << min << "\tMax: " << max << "\tAvg: " << sum / 100 << '\n';
+
+    cout << "\n--Modified--\n";
+    min = qM[0];
+    max = qM[0];
+    sum = 0;
+    for(int i = 0; i < 100; i++) {
+        if(qM[i] > max) max = qM[i];
+        if(qM[i] < min) min = qM[i];
+        sum += qM[i];
+    }
+
+    cout << "Min: " << min << "\tMax: " << max << "\tAvg: " << sum / 100 << '\n';
+
+    return 0;
+}
+
+void swap(int arr[], int a, int b) {
+    int temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp;
+}
+
+void printArr(int arr[], int n) {
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << '\t';
+    cout << '\n';
+}
+
+int med(int a, int b, int c) {
+    if (a >= b && a <= c || a >= c && a <= b) return a;
+    if (b >= a && b <= c || b >= c && b <= a) return b;
+    return c;
+}
+
+void fillArr(int arr[], int n) {
+    for(int i = 0; i < n; i++) {
+        arr[i] = rand() % 100;
+    }
+}
+
+void quickSort(int arr[], int a, int b) {
+    if(a < b) {
+        int pivot = arr[b];
+
+        int i = a - 1;
+        for(int j = a; j < b; j++) 
+            if(arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        swap(arr, i + 1, b);
+
+        quickSort(arr, a, i);
+        quickSort(arr, i + 2, b);
+    }
+}
+
+void quickSortMod(int arr[], int a, int b) {
+    if(a < b) {
+        int pivot;
+        if(b - a <= 7) pivot = (a + b) / 2;
+        else if(b - a <= 40) pivot = med(arr[a], arr[(a + b) / 2], arr[b]);
+        else med(med(arr[0 * (b - a - 1) / 8], arr[1 * (b - a - 1) / 8], arr[2 * (b - a - 1) / 8]), 
+                    med(arr[3 * (b - a - 1) / 8], arr[4 * (b - a - 1) / 8], arr[5 * (b - a - 1) / 8]), 
+                    med(arr[6 * (b - a - 1) / 8], arr[7 * (b - a - 1) / 8], arr[8 * (b - a - 1) / 8]));
+
+        pivot = arr[b];
+
+        int i = a - 1;
+        for(int j = a; j < b; j++) 
+            if(arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        swap(arr, i + 1, b);
+
+        quickSortMod(arr, a, i);
+        quickSortMod(arr, i + 2, b);
+    }
+}    
+\end{lstlisting}
+
+\section{Overall comparison}
+
+Time($\mu s$) \\
+\begin{tabular}{c || c c c}
+     & Minimum & Maximum & Average \\
+    \hline \hline
+    Quicksort & 85304 & 91291 & 85691 \\
+    Quicksort (Modified) & 87103 & 92961 & 87492 \\
+    Merge Sort & 7586 & 8408 & 7606 \\
+    Insertion Sort & 4191381 & 4211034 & 4201999 
+\end{tabular}
+
+\begin{lstlisting}[language=c++, caption=main.cpp]
+// Ryan Jacoby
+
+/* 
+I'm not running this on my PC, only my server..... it would take wayyyy too long.
+
+
+Done! (Intel Core-i9 9900k@5.00GHz)
+
+--Quicksort--
+Min: 85304      Max: 91291      Avg: 85691
+
+--Quicksort(Modified)--
+Min: 87103      Max: 92961      Avg: 87492
+
+--Merge Sort--
+Min: 7586       Max: 8408       Avg: 7606
+
+--Insertion Sort--
+Min: 4191381    Max: 4211034    Avg: 4201999
+*/
+
+#include<iostream>
+#include<ctime>
+#include<chrono>
+
+using namespace std;
+
+void printArr(int[], int);
+void swap(int[], int, int);
+void quickSort(int[], int, int);
+void quickSortMod(int[], int, int);
+int med(int, int, int);
+void fillArr(int[], int);
+void insertionSort(int[], int);
+void mergeSort(int[], int, int);
+
+int main() {
+    srand(time(NULL));
+
+    const int RUNS = 1000;
+
+    int a[100000];
+
+    int qS[RUNS];
+    int qM[RUNS];
+    int mS[RUNS];
+    int iS[RUNS];
+
+
+    for(int i = 0; i < RUNS; i++) {
+        // Quick Sort(Modified)
+        fillArr(a, 100000);
+
+        auto start = chrono::high_resolution_clock::now();
+        quickSortMod(a, 0, 99999);
+        auto stop = chrono::high_resolution_clock::now();
+
+        qM[i] = chrono::duration_cast<chrono::microseconds>(stop - start).count();
+
+
+        // Quick Sort
+        fillArr(a, 100000);
+
+        start = chrono::high_resolution_clock::now();
+        quickSort(a, 0, 99999);
+        stop = chrono::high_resolution_clock::now();
+
+        qS[i] = chrono::duration_cast<chrono::microseconds>(stop - start).count();
+
+
+        //Merge Sort
+        fillArr(a, 100000);
+
+        start = chrono::high_resolution_clock::now();
+        mergeSort(a, 0, 99999);
+        stop = chrono::high_resolution_clock::now();
+
+        mS[i] = chrono::duration_cast<chrono::microseconds>(stop - start).count();
+
+
+        //Insertion Sort
+        fillArr(a, 100000);
+
+        start = chrono::high_resolution_clock::now();
+        insertionSort(a, 100000);
+        stop = chrono::high_resolution_clock::now();
+
+        iS[i] = chrono::duration_cast<chrono::microseconds>(stop - start).count();
+    }
+    
+
+    cout << "Done!\n";
+
+    cout << "\n--Quicksort--\n";
+    int min = qS[0], max = qS[0], sum = 0;
+    for(int i = 0; i < RUNS; i++) {
+        if(qS[i] > max) max = qS[i];
+        if(qS[i] < min) min = qS[i];
+        sum += qS[i];
+    }
+
+    cout << "Min: " << min << "\tMax: " << max << "\tAvg: " << sum / RUNS << '\n';
+
+    cout << "\n--Quicksort(Modified)--\n";
+    min = qM[0];
+    max = qM[0];
+    sum = 0;
+    for(int i = 0; i < RUNS; i++) {
+        if(qM[i] > max) max = qM[i];
+        if(qM[i] < min) min = qM[i];
+        sum += qM[i];
+    }
+
+    cout << "Min: " << min << "\tMax: " << max << "\tAvg: " << sum / RUNS << '\n';
+
+    cout << "\n--Merge Sort--\n";
+    min = mS[0];
+    max = mS[0];
+    sum = 0;
+    for(int i = 0; i < RUNS; i++) {
+        if(mS[i] > max) max = mS[i];
+        if(mS[i] < min) min = mS[i];
+        sum += mS[i];
+    }
+
+    cout << "Min: " << min << "\tMax: " << max << "\tAvg: " << sum / RUNS << '\n';
+
+    cout << "\n--Insertion Sort--\n";
+    min = iS[0];
+    max = iS[0];
+    sum = 0;
+    for(int i = 0; i < RUNS; i++) {
+        if(iS[i] > max) max = iS[i];
+        if(iS[i] < min) min = iS[i];
+        sum += iS[i];
+    }
+
+    cout << "Min: " << min << "\tMax: " << max << "\tAvg: " << sum / RUNS << '\n';
+
+    return 0;
+}
+
+void swap(int arr[], int a, int b) {
+    int temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp;
+}
+
+void printArr(int arr[], int n) {
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << '\t';
+    cout << '\n';
+}
+
+int med(int a, int b, int c) {
+    if (a >= b && a <= c || a >= c && a <= b) return a;
+    if (b >= a && b <= c || b >= c && b <= a) return b;
+    return c;
+}
+
+void fillArr(int arr[], int n) {
+    for(int i = 0; i < n; i++) {
+        arr[i] = rand() % 100;
+    }
+}
+
+void quickSort(int arr[], int a, int b) {
+    if(a < b) {
+        int pivot = arr[b];
+
+        int i = a - 1;
+        for(int j = a; j < b; j++) 
+            if(arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        swap(arr, i + 1, b);
+
+        quickSort(arr, a, i);
+        quickSort(arr, i + 2, b);
+    }
+}
+
+void quickSortMod(int arr[], int a, int b) {
+    if(a < b) {
+        int pivot;
+        if(b - a <= 7) pivot = (a + b) / 2;
+        else if(b - a <= 40) pivot = med(arr[a], arr[(a + b) / 2], arr[b]);
+        else med(med(arr[0 * (b - a - 1) / 8], arr[1 * (b - a - 1) / 8], arr[2 * (b - a - 1) / 8]), 
+                    med(arr[3 * (b - a - 1) / 8], arr[4 * (b - a - 1) / 8], arr[5 * (b - a - 1) / 8]), 
+                    med(arr[6 * (b - a - 1) / 8], arr[7 * (b - a - 1) / 8], arr[8 * (b - a - 1) / 8]));
+
+        pivot = arr[b];
+
+        int i = a - 1;
+        for(int j = a; j < b; j++) 
+            if(arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        swap(arr, i + 1, b);
+
+        quickSortMod(arr, a, i);
+        quickSortMod(arr, i + 2, b);
+    }
+}
+
+void insertionSort(int arr[], int n) {
+    int i, j, k;
+
+    for(int i = 1; i < n; i++) {
+        k = arr[i];
+        j = i - 1;
+
+        while(j >= 0 && arr[j] > k) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+
+        arr[j + 1] = k;
+    }
+}
+
+void mergeSort(int arr[], int a, int b) {
+    if(a < b) {
+        int m = a + (b - a) / 2;
+        int i, j, k;
+        
+        mergeSort(arr, a, m);
+        mergeSort(arr, m + 1, b);
+        
+        int n1 = m - a + 1, n2 = b - m;
+        int l[n1], r[n2];
+
+        for(i = 0; i < n1; i++) l[i] = arr[a + i];
+        for(j = 0; j < n2; j++) r[j] = arr[m + 1 + j];
+
+        i = 0;
+        j = 0;
+        k = a;
+        while(i < n1 && j < n2) {
+            if(l[i] <= r[i]) {
+                arr[k] = l[i];
+                i++;
+            } else {
+                arr[k] = r[j];
+                j++;
+            }
+            k++;
+        }
+
+        while(i < n1) {
+            arr[k] = l[i];
+            i++;
+            k++;
+        }
+
+        while(j < n2) {
+            arr[k] = r[j];
+            j++;
+            k++;
+        }
+    }
+}    
+\end{lstlisting}
+
+\end{document}

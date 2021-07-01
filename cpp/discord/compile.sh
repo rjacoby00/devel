@@ -1,0 +1,3 @@
+g++ -o example main.cpp achievement_manager.cpp activity_manager.cpp core.cpp image_manager.cpp lobby_manager.cpp network_manager.cpp overlay_manager.cpp relationship_manager.cpp store_manager.cpp storage_manager.cpp types.cpp user_manager.cpp voice_manager.cpp -L lib/x86_64/ -ldiscord_game_sdk &> compile.txt
+x86_64-w64-mingw32-g++ -static -static-libgcc -static-libstdc++ -o example main.cpp achievement_manager.cpp activity_manager.cpp core.cpp image_manager.cpp lobby_manager.cpp network_manager.cpp overlay_manager.cpp relationship_manager.cpp store_manager.cpp storage_manager.cpp types.cpp user_manager.cpp voice_manager.cpp -L lib/x86_64/ -ldiscord_game_sdk.dll &> compile_windows.txt
+

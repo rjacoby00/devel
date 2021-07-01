@@ -1,0 +1,148 @@
+\documentclass[letterpaper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{tikz}
+\usepackage{everysel}
+\usepackage{ragged2e}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{color}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows.blur}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{COMSC-200 \\ Lab 7}
+\author{Ryan Jacoby}
+\date{18 October 2020}
+\begin{document}
+
+\maketitle
+
+\section{Search Tree}
+
+\begin{lstlisting}[language=c++, caption=main.cpp]
+// Ryan Jacoby
+
+#include<iostream>
+
+using namespace std;
+
+class Node {
+private:
+    Node * left;
+    Node * right;
+    int val;
+public:
+    Node(int);
+    Node * search(int);
+    Node * insert(int);
+    void setLeft(Node *);
+    void setRight(Node *);
+    int getVal();
+};
+
+Node::Node(int val) {
+    this->left = nullptr;
+    this->right = nullptr;
+    this->val = val;
+}
+
+Node * Node::search(int val) {
+    if(this->val == val) return this;
+    if(this->val > val) return this->left->search(val);
+    return this->right->search(val);
+}
+
+Node * Node::insert(int val) {
+    if(val < this->val) {
+        if(this->left == nullptr){
+            this->left == new Node(val);
+            return this->left;
+        }
+        this->left->insert(val);
+    }
+    else if(val > this->val) {
+        if(this->right == nullptr){
+            this->right == new Node(val);
+            return this->right;
+        }
+        this->right->insert(val);
+    }
+
+    return this;
+}
+
+void Node::setLeft(Node * n) {
+    this->left = n;
+}
+
+void Node::setRight(Node * n) {
+    this->right = n;
+}
+
+int Node::getVal() {
+    return val;
+}
+
+int main() {
+    Node head = Node(50);
+    head.insert(30);
+    head.insert(80);
+    head.insert(10);
+    head.insert(60);
+    head.insert(70);
+
+    cout << head.search(70)->getVal();
+    return 0;
+}
+\end{lstlisting}
+
+\end{document}

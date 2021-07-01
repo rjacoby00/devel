@@ -1,0 +1,3 @@
+LD_LIBRARY_PATH=./lib/x86_64/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
+./example

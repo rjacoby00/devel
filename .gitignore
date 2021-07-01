@@ -264,3 +264,13 @@ tags
 /java/minecraft/
 /cpp/comsc110/**/*.cpp
 /cpp/comsc165/**/*.cpp
+/cpp/comsc165/**/*.h
+/cpp/comsc200/**/*.cpp
+/cpp/comsc200/**/*.h
+/cpp/comsc210/**/*.cpp
+/cpp/comsc210/**/*.h
+
+# Files that are too large for GitHub and are unimportant(contact me for access):
+
+/cpp/comsc200/Lab\ 8/writeup.pdf
+/cpp/comsc200/Lab\ 8/heap_sort_diagram.png

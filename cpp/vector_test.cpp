@@ -44,7 +44,7 @@ T pop_front(vector<T> &v) {
 }
 
 template<class T>
-void print_vector(const vector<T> v) {
+void vrint_vector(const vector<T> v) {
     for(T t : v)
         cout << t << '\n';
 }

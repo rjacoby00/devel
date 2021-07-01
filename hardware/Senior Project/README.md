@@ -1,0 +1,3 @@
+# High School Senior Project
+
+This is the circuit and PCB design for my Senior Research Project.  My project was to research the future economic impacts of the Internet of Things on manufacturing and to design a simple IoT board.  This is a small temperature sensor board that transmits it's data over LoRa.  The board is untested as the parts I orignally designed it for were out of stock by the time it was complete due to the global chip shortage in 2021.  The firmware is mostly just the template files generated for my hardware configuration by STM32CubeIDE.  I've stripped out most of the project files from that with a gitignore.

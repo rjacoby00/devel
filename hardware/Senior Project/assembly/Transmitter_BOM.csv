@@ -1,0 +1,17 @@
+Comment,Designator,Footprint,LCSC Part #
+10u Unpolarized capacitor,"C1,C10,C12",C_0402_1005Metric, C15525
+12p Unpolarized capacitor,"C2,C3",C_0402_1005Metric, C1547
+1u Unpolarized capacitor,"C4,C7",C_0805_2012Metric, C28323
+1u Unpolarized capacitor,C5,C_0603_1608Metric, C15849
+10n Unpolarized capacitor,C6,C_0603_1608Metric, C57112
+100n Unpolarized capacitor,"C8,C9,C11",C_0402_1005Metric, C1525
+Blue Light emitting diode,D1,LED_0805_2012Metric, C2293
+39n Inductor,L1,L_0402_1005Metric, C86063
+"AO3401A -4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23",Q1,SOT-23, C15127
+100K Resistor,"R1,R2",R_0402_1005Metric, C25741
+10k Resistor,"R3,R5,R9",R_0402_1005Metric, C25744
+1k5 Resistor,R4,R_0603_1608Metric, C22843
+22 Resistor,"R6,R7,R8",R_0402_1005Metric, C25092
+"XC6206P332MR Positive 60-250mA Low Dropout Regulator, Fixed Output, SOT-23",U2,SOT-23-3,C5446
+UFL_SMA ,X1,U.FL_Hirose_U.FL-R-SMT-1_Vertical, C88374
+32.768k Two pin crystal,Y1,Crystal_SMD_3215-2Pin_3.2x1.5mm, C32346
