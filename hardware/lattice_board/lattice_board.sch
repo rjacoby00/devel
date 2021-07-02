@@ -94,4 +94,176 @@ Wire Wire Line
 	5550 2000 5550 1700
 Connection ~ 5550 1700
 NoConn ~ 5050 1800
+NoConn ~ 8600 3100
+NoConn ~ 9100 3000
+NoConn ~ 8600 3800
+$Comp
+L power:GND #PWR?
+U 1 1 60DF5C29
+P 9150 3950
+F 0 "#PWR?" H 9150 3700 50  0001 C CNN
+F 1 "GND" H 9155 3777 50  0000 C CNN
+F 2 "" H 9150 3950 50  0001 C CNN
+F 3 "" H 9150 3950 50  0001 C CNN
+	1    9150 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9150 3950 9150 3900
+Wire Wire Line
+	9150 3900 9100 3900
+Wire Wire Line
+	9100 3800 9150 3800
+Wire Wire Line
+	9150 3800 9150 3900
+Connection ~ 9150 3900
+Wire Wire Line
+	9100 3700 9150 3700
+Wire Wire Line
+	9150 3700 9150 3800
+Connection ~ 9150 3800
+Wire Wire Line
+	9100 3600 9150 3600
+Wire Wire Line
+	9150 3600 9150 3700
+Connection ~ 9150 3700
+Wire Wire Line
+	9100 3500 9150 3500
+Wire Wire Line
+	9150 3500 9150 3600
+Connection ~ 9150 3600
+Wire Wire Line
+	9100 3400 9150 3400
+Wire Wire Line
+	9150 3400 9150 3500
+Connection ~ 9150 3500
+Wire Wire Line
+	9100 3300 9150 3300
+Wire Wire Line
+	9150 3300 9150 3400
+Connection ~ 9150 3400
+Wire Wire Line
+	9100 3200 9150 3200
+Wire Wire Line
+	9150 3200 9150 3300
+Connection ~ 9150 3300
+Wire Wire Line
+	9100 3100 9150 3100
+Wire Wire Line
+	9150 3100 9150 3200
+Connection ~ 9150 3200
+$Comp
+L power:+3V3 #PWR?
+U 1 1 60DF96CA
+P 8250 2900
+F 0 "#PWR?" H 8250 2750 50  0001 C CNN
+F 1 "+3V3" H 8265 3073 50  0000 C CNN
+F 2 "" H 8250 2900 50  0001 C CNN
+F 3 "" H 8250 2900 50  0001 C CNN
+	1    8250 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8250 2900 8250 3000
+Wire Wire Line
+	8250 3000 8600 3000
+Text GLabel 8600 3200 0    50   Input ~ 0
+SDI
+Text GLabel 8600 3300 0    50   Input ~ 0
+~CS
+Text GLabel 8600 3400 0    50   Input ~ 0
+CLK
+$Comp
+L Connector_Generic:Conn_02x10_Odd_Even J?
+U 1 1 60DFD5AD
+P 8800 3400
+F 0 "J?" H 8850 4017 50  0000 C CNN
+F 1 "Conn_02x10_Odd_Even" H 8850 3926 50  0000 C CNN
+F 2 "" H 8800 3400 50  0001 C CNN
+F 3 "~" H 8800 3400 50  0001 C CNN
+	1    8800 3400
+	1    0    0    -1  
+$EndComp
+NoConn ~ 8600 3500
+Text GLabel 8600 3600 0    50   Input ~ 0
+SDO
+Text GLabel 8600 3700 0    50   Input ~ 0
+~RESET
+$Comp
+L power:+5V #PWR?
+U 1 1 60DFF9BF
+P 8200 3800
+F 0 "#PWR?" H 8200 3650 50  0001 C CNN
+F 1 "+5V" H 8215 3973 50  0000 C CNN
+F 2 "" H 8200 3800 50  0001 C CNN
+F 3 "" H 8200 3800 50  0001 C CNN
+	1    8200 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8200 3800 8200 3900
+Wire Wire Line
+	8200 3900 8600 3900
+Text GLabel 3050 5800 0    50   Input ~ 0
+SDI
+Text GLabel 3050 5900 0    50   Input ~ 0
+CLK
+Text GLabel 3050 5700 0    50   Input ~ 0
+SDO
+$Comp
+L Switch:SW_SPDT SW?
+U 1 1 60E198BD
+P 1950 6000
+F 0 "SW?" H 1950 5675 50  0000 C CNN
+F 1 "SW_SPDT" H 1950 5766 50  0000 C CNN
+F 2 "" H 1950 6000 50  0001 C CNN
+F 3 "~" H 1950 6000 50  0001 C CNN
+	1    1950 6000
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2650 6000 3050 6000
+$Comp
+L power:GND #PWR?
+U 1 1 60E1ADAD
+P 1700 6150
+F 0 "#PWR?" H 1700 5900 50  0001 C CNN
+F 1 "GND" H 1705 5977 50  0000 C CNN
+F 2 "" H 1700 6150 50  0001 C CNN
+F 3 "" H 1700 6150 50  0001 C CNN
+	1    1700 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 60E1B359
+P 1700 5850
+F 0 "#PWR?" H 1700 5700 50  0001 C CNN
+F 1 "+3V3" H 1715 6023 50  0000 C CNN
+F 2 "" H 1700 5850 50  0001 C CNN
+F 3 "" H 1700 5850 50  0001 C CNN
+	1    1700 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1700 5850 1700 5900
+Wire Wire Line
+	1700 5900 1750 5900
+Wire Wire Line
+	1750 6100 1700 6100
+Wire Wire Line
+	1700 6100 1700 6150
+$Comp
+L Device:R R?
+U 1 1 60E2544C
+P 2500 6000
+F 0 "R?" V 2293 6000 50  0000 C CNN
+F 1 "10k" V 2384 6000 50  0000 C CNN
+F 2 "" V 2430 6000 50  0001 C CNN
+F 3 "~" H 2500 6000 50  0001 C CNN
+	1    2500 6000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2350 6000 2150 6000
 $EndSCHEMATC

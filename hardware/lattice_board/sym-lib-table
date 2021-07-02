@@ -1,3 +1,3 @@
 (sym_lib_table
-  (lib (name Lattice_Proj)(type Legacy)(uri /home/rjacoby/Documents/lattice_board/ICE40HX1K-VQ100/ICE40HX1K-VQ100.lib)(options "")(descr ""))
+  (lib (name Lattice_Proj)(type Legacy)(uri ${KIPRJMOD}/ICE40HX1K-VQ100/ICE40HX1K-VQ100.lib)(options "")(descr ""))
 )
